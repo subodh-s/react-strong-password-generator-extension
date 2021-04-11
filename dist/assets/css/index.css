@@ -1,0 +1,44 @@
+body {
+  text-align:center;
+}
+
+img{
+  margin-left:15px;
+  vertical-align: middle;
+  display: inline-block;
+  cursor:pointer;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.pwd {
+border: 1px gray;
+border-style:dashed;
+padding:2px;
+display:inline;
+}
+
+.pwdbox {
+  margin-top : 25px;
+}
