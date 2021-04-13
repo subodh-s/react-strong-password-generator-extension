@@ -1,5 +1,11 @@
 body {
   text-align:center;
+  margin:10px;
+  background-color:honeydew;
+}
+
+.hide{
+  display:none;
 }
 
 img{
@@ -7,6 +13,7 @@ img{
   vertical-align: middle;
   display: inline-block;
   cursor:pointer;
+  margin-right:10px;
 }
 
 .btn-primary {
@@ -35,8 +42,9 @@ img{
 .pwd {
 border: 1px gray;
 border-style:dashed;
-padding:2px;
+padding:5px;
 display:inline;
+font-size: .75rem;
 }
 
 .pwdbox {

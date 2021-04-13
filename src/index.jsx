@@ -4,48 +4,45 @@ import './assets/css/index.css';
 import logo from './assets/img/copy.png';
 
 class Extension extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pwd: null,
+      isHidden:true
+    };
+  }
   render() {  
     return(
     <div>
-      <BlueButton/>
-      <PasswordDisplay/>
+      <button className="btn btn-primary" onClick={() => this.setState({pwd: generatePassword(12),isHidden: false})}> Click to generate secure Password </button>
+      <div class={this.state.isHidden ? 'pwdbox hide' : 'pwdbox' }>
+        <p className="pwd" id="pwdBox">{this.state.pwd ? this.state.pwd : 'Click' }</p><img src={logo} alt="Copy to clipboard" onClick={() => selectText('pwdBox')}/><span>(Copy to clipboard)</span>
+        </div>
     </div>
     );
   }
 }
 
-class PasswordDisplay extends React.Component{
-  render(){
-    return (
-      <div class="pwdbox">
-        <p className="pwd">{generatePassword(12)}</p><img src={logo} alt="Copy to clipboard" onClick={() => alert('click')}/>
-        </div>
-    )
+
+function selectText(node) {
+  node = document.getElementById(node);
+
+  if (document.body.createTextRange) {
+      const range = document.body.createTextRange();
+      range.moveToElementText(node);
+      range.select();
+  } else if (window.getSelection) {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(node);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand('copy');
+  } else {
+      console.warn("Could not select text in node: Unsupported browser.");
   }
 }
 
-class BlueButton extends React.Component{
-  render(){
-    return (
-      <button className="btn btn-primary"> Generate secure password </button>
-    );
-  }
-}
-
-function copy() {
-  /* Get the text field */
-  var copyText = document.getElementById("myInput");
-
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-  /* Copy the text inside the text field */
-  document.execCommand("copy");
-
-  /* Alert the copied text */
-  alert("Copied the text: " + copyText.value);
-}
 
 function generatePassword(length){
   var pass = '';
